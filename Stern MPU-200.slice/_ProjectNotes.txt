@@ -1,0 +1,20 @@
+Caution: This board has +12v and +43v supplies, SLICE at your own risk!
+
+The +12v is used for the diagnostic LED and the valid power detector circuit which outputs to /RESET which possibly only connects to the 6800, 6821s and J5.
+
+The +43v is used in the Zero crossing detector and feeds into U14.  Do not attempt to use slice with this connected.
+
+Ensure that the test clip and ground do not come into contact with voltages over 5v or damage to the Digilent unit may occur.
+
+For safe SLICEing do the following:
+• Remove ALL Connectors.
+• Connect TP4 (Ground) to PSU Ground.
+• Connect TP5 (+5v) to PSU +5v.
+• Connect TP2 (+12v) to PSU +5v - This will allow the LED (CR8) to illuminate for diagnostic flashes.
+• Connect J5 Pin 25 (/RESET) to J5 Pin 30 (+5v) - This will allow the CPU to run.
+
+Notes:
+• You may have to disconnect and reconnect J5 Pin 25 to get the PCB to boot.
+• The diagnostic LED will be very dim in this configuration.
+• The board will boot with this voltage missing but will not pass the last diagnostic (LED flash) test.
+• You can force the last LED flash to pass by temporarily connecting the top of R17 and the top of R23.
