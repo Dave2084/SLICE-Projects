@@ -1,0 +1,1 @@
+Caution: This board has a 12v supply for the sound section. Ensure that the test clip and ground do not come into contact with voltages over 5v or damage to the Digilent unit may occur.
