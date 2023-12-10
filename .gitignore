@@ -10,11 +10,17 @@ Star Wars.slice
 # Executables
 *.exe
 
+
 # Slice Manual
 SliceManual*.pdf
 
+
 # ROM Files
 *.bin
+
+
+# RAW files
+*.raw
 
 
 # Test Failure PNGs
