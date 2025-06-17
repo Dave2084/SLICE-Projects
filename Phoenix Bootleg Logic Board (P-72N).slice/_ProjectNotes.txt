@@ -1,0 +1,5 @@
+This board has some differences to the Genuine Centuri TIM-8002 board.
+
+For the 74LS04 at IC07 that inverts the clock signals use the [SPACE] option to toggle the device to 'DIP+' and get a results grab to show frequencies for all pins. The stored result was sampled this way.
+
+For the 2114 RAM it is grouped into two banks that are only active when the screen is normal or flipped (Player 2 in a cocktail game). The normal bank is enabled by signal ONE-00 (ICs 25, 27, 41 & 43). The flipped bank is enabled by signal ONE-01 (ICs 26, 28, 42 & 44).
