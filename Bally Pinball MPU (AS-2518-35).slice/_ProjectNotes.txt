@@ -1,0 +1,3 @@
+Warning the Zero Crossing Detector (U14) may contain voltages over 5v under certain fault conditions.
+
+DO NOT slice U14 with the 43v DC connected to the PCB or damage may occur to the Digilent unit.
