@@ -1,0 +1,52 @@
+Caution: This board has a +12v supply used in the power amplifier IC45 (LM380)  and associated circuitry. Ensure that the test clip and ground do not come into contact with any of these locations or damage to the Digilent unit may occur.
+
+Note that slicing IC1 will always fail.
+
+
+Phoenix Sound Diagnostics
+==================
+
+Phoenix sounds are all triggered by a pair of 74LS374 at IC5 and IC6, the sounds are mix of digital and analogue circuits, the majority of issues found will be due to one of the 555 timers (used in multiple sounds) or the 4006 at IC45 (used in the ship fire and player hit sounds) failing.
+
+Since there is currently no diagnostic ROM capable of triggering the sounds on demand (as of Aug 2025) I thought it might be useful to document how to trigger each sound.  Note that some sounds are used for multiple purposes so this guide only details how to trigger each and the expected response.
+
+
+Barrier Tone Generator [ICs 13 (74LS163), 20 (7414), 21 (7474)]:
+Each of the for channels generates a different steady tone, combining them will make additional tones. This is used in game to generate the barrier tone by toggling IC5 pins 2 and 9 low and pins 16 and 19 are pulsed. The tones can also be modified by pulling IC5 pins 15 and 6 high. For test purposes we can trigger them individually or together.
+IC5 Pin 19      Low = Highest pitch tone on
+IC5 Pin 2        Low = Medium-high pitch tone on
+IC5 Pin 16      Low = Medium-low pitch tone on
+IC5 Pin 5        Low = Lowest pitch tone on
+
+Barrier Tone Generator Mod A [IC28 (7405), 48 (555), 52 (LM324) and Barrier tone generator]:
+IC5 Pin 15      High = Reduces tone pitch - instant change decays over time
+
+Barrier Tone Generator Mod B [IC28 (7405) and Barrier tone generator]:
+IC5 Pin 6        High = reduced volume - instant change no decay   
+
+
+Music [ICs 28 (7405) and 49 (MN6221AA/7910CG)]:
+There are two lines from the 74LS374 at IC5 to select and activate the tone generator IC49, both are fed through the hex inverter at IC28.
+IC5 Pin 9        High = Game start music      Low = Defeated boss level music
+IC5 Pin 12      High = Music On
+
+
+Swoop Tone Generator [ICs 14 (74LS163), 21 (7474)]:
+Each of the for channels generates a different modulated tone, combining them will make additional tones. This is used in game to generate the swoop tone. The tones can also be modified by pulling IC6 pins 15 and 6 high. For test purposes we can trigger them individually or together.
+IC5 Pin 19      Low = Highest pitch tone on
+IC5 Pin 2        Low = Medium-high pitch tone on
+IC5 Pin 16      Low = Medium-low pitch tone on
+IC5 Pin 5        Low = Lowest pitch tone on
+
+Swoop Tone Generator Mod A [IC29 (7405), 44 (555), 50 (555), 51 (555) and Swoop tone generator]:
+IC5 Pin 15      High = Sound broken into individual faster notes 
+
+Swoop Tone Generator Mod B [IC29 (7405), 44 (555), 50 (555), 51 (555) and Swoop tone generator]:
+IC5 Pin 6        High = Sound broken into individual slower notes
+
+
+Player Fire [ICs 20 (7414), 22 (74LS136), 29 (7405), 42 (555), 45 (4006) 46 (LM324):
+IC5 Pin 12      High = Fire sound on
+
+Explosion [ICs 20 (7414), 22 (74LS136), 29 (7405), 42 (555), 45 (4006) 46 (LM324), 52 (LM324):
+IC5 Pin 9       High = Explosion sound on
