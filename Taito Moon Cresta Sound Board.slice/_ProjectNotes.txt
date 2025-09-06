@@ -1,0 +1,24 @@
+[Fixed,12]
+Note that this boardset has significant differences from a standard Galaxian/Moon Cresta board and comes in two standard sized taito boards joined by two 50-pin ribbons and a smaller sound board that attaches to the top board.
+
+As well as there layout being different there are differences in the circuits.
+
+There are no known schematics available. 
+
+
+Cross refernce of IC Locations (Note that pairs of 555 timers have been replaced by 556 dual tiners):
+
+Taito IC    Type        Original IC     Original Type
+IC01        LM324       7T
+IC02        556         8R/9R           555
+IC03        74259       9M
+IC04        4066        7R
+IC05        556         7S              555
+IC06        556         8S/8T           555
+IC07        74259       9L 
+IC08        7400        8L
+IC09        74393       6T
+IC10        7404        6E
+IC11        74161       8K/9K
+IC12        74161       8K/9K
+IC13        74273       9J

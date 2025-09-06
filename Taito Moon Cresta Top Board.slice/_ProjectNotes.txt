@@ -1,0 +1,5 @@
+Note that this boardset has significant differences from a standard Galaxian/Moon Cresta board and comes in two standard sized taito boards joined by two 50-pin ribbons and a smaller sound board that attaches to the top board.
+
+As well as there layout being different there are differences in the circuits.
+
+There are no known schematics available. 
